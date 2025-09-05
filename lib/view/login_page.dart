@@ -188,10 +188,7 @@ class LoginPage extends StatelessWidget {
                       return FractionallySizedBox(
                         heightFactor: 0.8,
                         child: RegisterPage()
-                      ); /*Container(
-                        height: 200,
-                        child: RegisterPage()
-                      );*/
+                      ); 
                     },
                   );
                 },
