@@ -96,8 +96,45 @@ class RegisterPage extends StatelessWidget {
                 ),
                 Input(hintText: 'Confirmar senha'),
                 SizedBox(height: 32),
-
                 Button(label: 'Começar!', onPressed: () {}),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Aqui você coloca a função de login com Google
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(double.infinity, 12),
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black,
+                    padding: EdgeInsets.symmetric(
+                      vertical: 13,
+                      horizontal: 30,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    elevation: 1,
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        'assets/images/google_logo.png',
+                        height: 24,
+                        width: 24,
+                      ),
+                      SizedBox(width: 20),
+                      Text(
+                        'Cadastro com Google',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
