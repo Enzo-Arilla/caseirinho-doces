@@ -1,3 +1,7 @@
+import 'package:caseirinhodoces/components/button.dart';
+import 'package:caseirinhodoces/components/input.dart';
+import 'package:caseirinhodoces/components/modal.dart';
+import 'package:caseirinhodoces/view/forgot_password_page.dart';
 import 'package:caseirinhodoces/view/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -125,13 +129,31 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-              Text(
+              GestureDetector(onTap: () {
+    showDialog(
+      context: context,
+      builder: (_) => Modal(title: 'Recuperação de senha', widgets: [ Input(hintText: 'Digite o seu e-mail'), 
+                                                                      Button(label: 'Recuperar Senha', onPressed: (){
+
+                                                                        showDialog(context: context, builder: (_) => Modal(title: 'Código de Verificação', widgets: [
+                                                                              Text('Um código de verificação foi enviado para o seu e-mail', textAlign: TextAlign.center,
+                                                                                                                        style: TextStyle(color: Colors.blueGrey,
+                                                                                                                        fontSize: 16)),
+                                                                              Input(hintText: 'Código de verificação'),
+                                                                              Button(label: 'Trocar senha', onPressed: (){
+                                                                                showDialog(context: context, builder: (_) => ForgotPasswordPage());
+                                                                              })
+                  
+                                                                        ]));
+                                                                      }) ],),
+    );
+  }, child: Text(
                 'Esqueci minha senha',
                 style: TextStyle(
                   color: Colors.blueGrey,
                   fontSize: 16,
                 ),
-              ),
+              )),
               SizedBox(height: 80),
               SizedBox(
                 width: 350,
