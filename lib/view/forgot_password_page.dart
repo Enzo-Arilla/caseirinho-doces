@@ -1,8 +1,6 @@
 import 'package:caseirinhodoces/components/button.dart';
 import 'package:caseirinhodoces/components/input.dart';
-import 'package:caseirinhodoces/components/modal.dart';
 import 'package:caseirinhodoces/view/login_page.dart';
-import 'package:caseirinhodoces/view/register_page.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
