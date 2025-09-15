@@ -74,6 +74,11 @@ flutter:
     - assets/images/favoritos_menuLateral.png
     - assets/images/cartao_menuLateral.png
     - assets/images/relogio_menuLateral.png
+    - assets/images/Xrosa.png
+    - assets/images/perfil_menuInferior.png
+    - assets/images/home_menuInferior.png
+    - assets/images/cesta_menuInferior.png
+    - assets/images/coracao_rosa.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
