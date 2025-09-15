@@ -2,6 +2,7 @@ import 'package:caseirinhodoces/components/button.dart';
 import 'package:caseirinhodoces/components/input.dart';
 import 'package:caseirinhodoces/components/modal.dart';
 import 'package:caseirinhodoces/view/forgot_password_page.dart';
+import 'package:caseirinhodoces/view/main_page.dart';
 import 'package:caseirinhodoces/view/register_page.dart';
 import 'package:flutter/material.dart';
 
@@ -106,7 +107,9 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 width: 350,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: (){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFF4709D),
                     foregroundColor: Colors.white,

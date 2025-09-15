@@ -64,6 +64,16 @@ flutter:
   assets:
     - assets/images/caseirinho_logo.png
     - assets/images/google_logo.png
+    - assets/images/logo_branca.png
+    - assets/images/cesta_compras.png
+    - assets/images/trufa1.png
+    - assets/images/bolodepote1.png
+    - assets/images/paodemel1.png
+    - assets/images/perfil.png
+    - assets/images/user_menuLateral.png
+    - assets/images/favoritos_menuLateral.png
+    - assets/images/cartao_menuLateral.png
+    - assets/images/relogio_menuLateral.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

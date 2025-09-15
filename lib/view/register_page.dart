@@ -40,7 +40,6 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 24),
-
                 // Nome
                 Align(
                   alignment: Alignment.centerLeft,
