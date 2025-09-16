@@ -1,5 +1,6 @@
 import 'package:caseirinhodoces/components/productCard.dart';
 import 'package:caseirinhodoces/view/favorite_products_page.dart';
+import 'package:caseirinhodoces/view/profile_user_page.dart';
 import 'package:flutter/material.dart';
 import 'package:caseirinhodoces/control/product_change_notifier.dart';
 import 'package:caseirinhodoces/control/product_inherited_widget.dart';
@@ -70,7 +71,10 @@ class _MainPageState extends State<MainPage> {
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.bold)),
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ProfileUserPage())),
                 ),
                 const Divider(color: Colors.white, thickness: 1, height: 0),
                 ListTile(

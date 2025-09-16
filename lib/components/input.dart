@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class Input extends StatelessWidget { 
 
   final String hintText;
+  final bool enabled;
 
-  const Input({ required this.hintText });
+  const Input({ required this.hintText, required this.enabled });
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +31,7 @@ class Input extends StatelessWidget {
                     ),
                     filled: true,
                     fillColor: Colors.white,
+                    enabled: enabled
                   ),
                 );
 

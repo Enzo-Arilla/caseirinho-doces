@@ -135,14 +135,14 @@ class LoginPage extends StatelessWidget {
               GestureDetector(onTap: () {
     showDialog(
       context: context,
-      builder: (_) => Modal(title: 'Recuperação de senha', widgets: [ Input(hintText: 'Digite o seu e-mail'), 
+      builder: (_) => Modal(title: 'Recuperação de senha', widgets: [ Input(hintText: 'Digite o seu e-mail', enabled: true), 
                                                                       Button(label: 'Recuperar Senha', onPressed: (){
 
                                                                         showDialog(context: context, builder: (_) => Modal(title: 'Código de Verificação', widgets: [
                                                                               Text('Um código de verificação foi enviado para o seu e-mail', textAlign: TextAlign.center,
                                                                                                                         style: TextStyle(color: Colors.blueGrey,
                                                                                                                         fontSize: 16)),
-                                                                              Input(hintText: 'Código de verificação'),
+                                                                              Input(hintText: 'Código de verificação', enabled: true),
                                                                               Button(label: 'Trocar senha', onPressed: (){
                                                                                 showDialog(context: context, builder: (_) => ForgotPasswordPage());
                                                                               })

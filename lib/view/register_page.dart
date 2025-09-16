@@ -51,7 +51,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Input(hintText: 'Nome completo'),
+                Input(hintText: 'Nome completo', enabled: true),
                 SizedBox(height: 16),
 
                 // Email
@@ -65,7 +65,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Input(hintText: 'E-mail'),
+                Input(hintText: 'E-mail', enabled: true),
                 SizedBox(height: 16),
 
                 // Senha
@@ -79,7 +79,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Input(hintText: 'Senha'),
+                Input(hintText: 'Senha', enabled: true),
                 SizedBox(height: 16),
 
                 // Confirmar senha
@@ -93,7 +93,7 @@ class RegisterPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Input(hintText: 'Confirmar senha'),
+                Input(hintText: 'Confirmar senha', enabled: true),
                 SizedBox(height: 32),
                 Button(label: 'Começar!', onPressed: () {}),
                 SizedBox(height: 20),

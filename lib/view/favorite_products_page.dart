@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:caseirinhodoces/components/navigationBarCustom.dart';
 import 'package:caseirinhodoces/components/productCard.dart';
 import 'package:caseirinhodoces/control/product_change_notifier.dart';
-import 'package:caseirinhodoces/control/product_inherited_widget.dart';
 
 class FavoriteProductsPage extends StatefulWidget {
   final ProductChangeNotifier productNotifier;
@@ -79,7 +78,6 @@ class _FavoriteProductsPageState extends State<FavoriteProductsPage> {
             child: ListView.builder(
               itemCount: favoriteProducts.length,
               itemBuilder: (context, index) {
-                final productIndex = favoriteProducts[index].key;
                 final product = favoriteProducts[index].value;
 
                 return ProductCard(
@@ -88,7 +86,7 @@ class _FavoriteProductsPageState extends State<FavoriteProductsPage> {
                     productNotifier.updateIsFavorite(productNotifier.products.indexOf(product));
                         setState(() {
                         });
-                    widget.onUpdate();;
+                    widget.onUpdate();
                   },
                 );
               },

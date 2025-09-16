@@ -35,7 +35,7 @@ class ForgotPasswordPage extends StatelessWidget {
                       fontSize: 16,
                     ),
                   )),
-                  Input(hintText: 'Nova senha'),
+                  Input(hintText: 'Nova senha', enabled: true),
                   SizedBox(height: 20),
                   Align(
                   alignment: Alignment.centerLeft,
@@ -47,7 +47,7 @@ class ForgotPasswordPage extends StatelessWidget {
                       fontSize: 16,
                     ),
                   )), 
-                  Input(hintText: 'Confirmar nova senha'),
+                  Input(hintText: 'Confirmar nova senha', enabled: true),
                   SizedBox(height: 20),
                   Button(label: 'Alterar senha', onPressed: (){
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
