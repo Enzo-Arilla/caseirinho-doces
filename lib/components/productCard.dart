@@ -1,4 +1,5 @@
 import 'package:caseirinhodoces/model/product.dart';
+import 'package:caseirinhodoces/view/product_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
@@ -18,12 +19,17 @@ class ProductCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(padding: EdgeInsets.only(top: 35.0)),
-          Container(
-            width: 300,
-            height: 200,
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-            child: Image.asset(product.imagePath, fit: BoxFit.cover),
+          GestureDetector(
+            onTap: () => {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ProductPage(product: product)))
+            },
+            child: Container(
+              width: 300,
+              height: 200,
+              clipBehavior: Clip.antiAlias,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+              child: Image.asset(product.imagePath, fit: BoxFit.cover),
+            ),
           ),
           const Padding(padding: EdgeInsets.only(top: 12.0)),
           RichText(text: TextSpan(children: [TextSpan(text: product.description + ' ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)), 

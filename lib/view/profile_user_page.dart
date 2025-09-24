@@ -1,8 +1,6 @@
 import 'package:caseirinhodoces/components/button.dart';
-import 'package:caseirinhodoces/components/input.dart';
 import 'package:caseirinhodoces/components/inputProfile.dart';
 import 'package:flutter/material.dart';
-import 'package:caseirinhodoces/components/navigationBarCustom.dart';
 
 class ProfileUserPage extends StatelessWidget {
   @override
@@ -27,7 +25,7 @@ class ProfileUserPage extends StatelessWidget {
           width: 300,
           child: Column(
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -95,10 +93,6 @@ class ProfileUserPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: NavigationBarCustom(
-        selectedIndex: 0,
-        onItemTapped: (int a) {},
       ),
     );
   }

@@ -15,7 +15,7 @@ class NavigationBarCustom extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: selectedIndex,
       onTap: onItemTapped,
-      backgroundColor: Colors.white, // fundo claro
+      backgroundColor: Color(0xFFFFD6EB), // fundo claro
       elevation: 0, // sem sombra
       type: BottomNavigationBarType.fixed,
       selectedFontSize: 0, // remove texto visivelmente
