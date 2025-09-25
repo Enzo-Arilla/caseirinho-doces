@@ -11,8 +11,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Color(0xFFFFF7F7),
         body: Center(
           child: Column(
@@ -108,7 +107,20 @@ class LoginPage extends StatelessWidget {
                 width: 350,
                 child: ElevatedButton(
                   onPressed: (){
-                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MainPage()));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Login realizado com sucesso!"),
+                        backgroundColor: Color(0xFFF96697),
+                        duration: Duration(seconds: 1),
+                      ),
+                    );
+
+                    Future.delayed(const Duration(seconds: 2), () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => MainPage()),
+                      );
+                    });
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xFFF4709D),
@@ -229,7 +241,6 @@ class LoginPage extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

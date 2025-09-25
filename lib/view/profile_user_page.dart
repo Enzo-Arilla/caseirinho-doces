@@ -11,13 +11,6 @@ class ProfileUserPage extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         automaticallyImplyLeading: false,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 16.0),
-          child: IconButton(
-            icon: Image.asset("assets/images/Xrosa.png", width: 28, height: 28),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ),
       ),
       body: Align(
         alignment: Alignment.center,

@@ -1,4 +1,5 @@
 import 'package:caseirinhodoces/components/navigationBarCustom.dart';
+import 'package:caseirinhodoces/components/productAddFavoriteModal.dart';
 import 'package:caseirinhodoces/components/productCard.dart';
 import 'package:caseirinhodoces/control/shopping_cart_change_notifier.dart';
 import 'package:caseirinhodoces/view/favorite_products_page.dart';
@@ -32,8 +33,7 @@ class _MainPageState extends State<MainPage> {
 
     return ProductInheritedWidget(
       productChangeNotifier: productNotifier,
-      child: MaterialApp(
-        home: Scaffold(
+      child: Scaffold(
           drawer: Drawer(
             backgroundColor: const Color(0xFFF4709D),
             child: ListView(
@@ -82,10 +82,12 @@ class _MainPageState extends State<MainPage> {
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.bold)),
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProfileUserPage())),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    setState(() {
+                      _selectedIndex = 0;
+                    });
+                  },
                 ),
                 const Divider(color: Colors.white, thickness: 1, height: 0),
                 ListTile(
@@ -198,6 +200,17 @@ class _MainPageState extends State<MainPage> {
                         product: product,
                         onFavoriteTap: () {
                           setState(() {
+                            if (!product.isFavorite) {
+                        showModalBottomSheet(
+                          context: context,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                          ),
+                          builder: (context) {
+                            return ProductAddFavoriteModal();
+                          },
+                        );
+                      }
                             productNotifier.updateIsFavorite(productNotifier.products.indexOf(product));
                           });
                         },
@@ -218,8 +231,7 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
           bottomNavigationBar: NavigationBarCustom(selectedIndex: _selectedIndex, onItemTapped: _onItemTapped),
-        ),
-      ),
+        )
     );
   }
 }

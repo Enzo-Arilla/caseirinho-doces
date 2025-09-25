@@ -1,8 +1,8 @@
 import 'package:caseirinhodoces/components/button.dart';
 import 'package:caseirinhodoces/components/productCart.dart';
 import 'package:caseirinhodoces/control/shopping_cart_change_notifier.dart';
+import 'package:caseirinhodoces/view/login_page.dart';
 import 'package:flutter/material.dart';
-import 'package:caseirinhodoces/components/navigationBarCustom.dart';
 
 class ShoppingCartPage extends StatefulWidget {
   final ShoppingCartChangeNotifier? shoppingCartChangeNotifier;
@@ -43,13 +43,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
           backgroundColor: Colors.white,
           elevation: 0,
           automaticallyImplyLeading: false,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 16.0),
-            child: IconButton(
-              icon: Image.asset("assets/images/Xrosa.png", width: 28, height: 28),
-              onPressed: () => Navigator.pop(context),
-            ),
-          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),
@@ -155,7 +148,9 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  Button(label: 'Finalizar compra', onPressed: (){})
+                  Button(label: 'Finalizar compra', onPressed: (){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                  })
                   ]
                 ),
               

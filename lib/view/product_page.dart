@@ -1,3 +1,5 @@
+import 'package:caseirinhodoces/components/productAddFavoriteModal.dart';
+import 'package:caseirinhodoces/components/shoppingCartAddModal.dart';
 import 'package:caseirinhodoces/control/shopping_cart_change_notifier.dart';
 import 'package:caseirinhodoces/control/shopping_cart_inherited_widget.dart';
 import 'package:caseirinhodoces/model/product.dart';
@@ -231,13 +233,24 @@ class _ProductPageState extends State<ProductPage> {
                     const Spacer(),
                     GestureDetector(onTap: (){
                                 setState(() {
+                                  
+                                  showModalBottomSheet(
+  context: context,
+  shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+  ),
+  builder: (context) {
+    return ShoppingCartAddModal();
+  },
+);
+
                                   shoppingCartNotifier.addToCartItems(product, quantity);
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => 
+                                /*Navigator.push(context, MaterialPageRoute(builder: (context) => 
                                   ShoppingCartPage(shoppingCartChangeNotifier: shoppingCartNotifier, onUpdate: (){setState(() {
                                     
-                                  });},)));
+                                  });},)));*/
                                 });
-                            }, child: Image.asset('assets/images/cesta_compras.png'))
+                    }, child: Image.asset('assets/images/cesta_compras.png'))
                   ],
                 ),
               )

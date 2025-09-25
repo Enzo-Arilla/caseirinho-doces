@@ -74,7 +74,7 @@ class _ProductCartState extends State<ProductCart> {
                     // Botão diminuir
                     IconButton(
                       icon: const Icon(Icons.remove),
-                      onPressed: widget.onDecrease,
+                      onPressed: () {},
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(
@@ -112,9 +112,31 @@ class _ProductCartState extends State<ProductCart> {
 
           // Botão remover
           IconButton(
-            icon: const Icon(Icons.close, color: Colors.pink),
-            onPressed: widget.onRemove,
+  icon: const Icon(Icons.close, color: Colors.pink),
+  onPressed: () {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Remover item"),
+        content: const Text("Tem certeza que deseja remover este produto do carrinho?"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text("Cancelar"),
           ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              widget.onRemove(); 
+            },
+            child: const Text("Remover"),
+          ),
+        ],
+      ),
+    );
+  },
+),
+
         ],
       ),
     );
