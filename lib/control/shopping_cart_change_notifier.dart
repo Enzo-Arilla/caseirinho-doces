@@ -40,12 +40,6 @@ class ShoppingCartChangeNotifier extends ChangeNotifier {
       notifyListeners();
     }
   }
-
-  /*updateIsFavorite(int index) {
-    products[index].isFavorite = !products[index].isFavorite;
-    notifyListeners();
-  }*/
-
 }
 
 class ShoppingCartSingleton {

@@ -1,13 +1,10 @@
-import 'package:caseirinhodoces/components/productAddFavoriteModal.dart';
 import 'package:caseirinhodoces/components/shoppingCartAddModal.dart';
 import 'package:caseirinhodoces/control/shopping_cart_change_notifier.dart';
 import 'package:caseirinhodoces/control/shopping_cart_inherited_widget.dart';
 import 'package:caseirinhodoces/model/product.dart';
-import 'package:caseirinhodoces/view/shopping_cart_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatefulWidget {
-
   final Product product;
 
   const ProductPage({super.key, required this.product});
@@ -17,15 +14,14 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-
-  final ShoppingCartChangeNotifier shoppingCartNotifier = ShoppingCartSingleton.instance;
+  final ShoppingCartChangeNotifier shoppingCartNotifier =
+      ShoppingCartSingleton.instance;
 
   int quantity = 1;
   String selectedFlavor = "Maracujá";
 
   @override
   Widget build(BuildContext context) {
-
     final Product product = widget.product;
 
     return ShoppingCartInheritedWidget(
@@ -58,9 +54,7 @@ class _ProductPageState extends State<ProductPage> {
                       backgroundColor: Colors.white,
                       child: IconButton(
                         icon: const Icon(Icons.arrow_back),
-                        onPressed: () {
-                          Navigator.pop(context); // volta para a página anterior
-                        },
+                        onPressed: () => Navigator.pop(context),
                       ),
                     ),
                   ),
@@ -76,22 +70,21 @@ class _ProductPageState extends State<ProductPage> {
                       ),
                       child: Text(
                         product.name,
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
                 ],
               ),
-      
+
               const SizedBox(height: 16),
-      
+
               // Avaliação
               Row(
                 children: [
                   const SizedBox(width: 12),
                   Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
@@ -101,23 +94,28 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                     child: Row(
                       children: [
-                        Text(product.rate!.toStringAsFixed(1),
-                            style: TextStyle(fontWeight: FontWeight.bold)),
-                        SizedBox(width: 4),
-                        Icon(Icons.star, color: Colors.orange, size: 18),
+                        Text(
+                          product.rate!.toStringAsFixed(1),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        const SizedBox(width: 4),
+                        const Icon(Icons.star, color: Colors.orange, size: 18),
                       ],
                     ),
                   ),
                   const Spacer(),
                   IconButton(
-                    icon: product.isFavorite ? Icon(Icons.favorite, color: Color(0xFFF96697), size: 18) : 
-                                               Icon(Icons.favorite_border, color: Color(0xFFF96697), size: 18),
+                    icon: product.isFavorite
+                        ? const Icon(Icons.favorite,
+                            color: Color(0xFFF96697), size: 18)
+                        : const Icon(Icons.favorite_border,
+                            color: Color(0xFFF96697), size: 18),
                     onPressed: () {},
                   ),
                   const SizedBox(width: 16),
                 ],
               ),
-      
+
               // Descrição
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -127,22 +125,22 @@ class _ProductPageState extends State<ProductPage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   product.description,
-                  style: TextStyle(color: Color(0xFF5E5959)),
+                  style: const TextStyle(color: Color(0xFF5E5959)),
                 ),
               ),
-      
+
               const SizedBox(height: 16),
-      
+
               // Reviews
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Latest Reviews",
+                  children: [
+                    Text("Últimos comentários",
                         style:
                             TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                     SizedBox(height: 6),
@@ -152,9 +150,9 @@ class _ProductPageState extends State<ProductPage> {
                   ],
                 ),
               ),
-      
+
               const SizedBox(height: 20),
-      
+
               // Sabores
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
@@ -164,12 +162,14 @@ class _ProductPageState extends State<ProductPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: DropdownButtonFormField<String>(
                   value: selectedFlavor,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12)),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
                   items: ["Maracujá", "Morango", "Coco", "Chocolate"]
                       .map((sabor) =>
@@ -182,78 +182,70 @@ class _ProductPageState extends State<ProductPage> {
                   },
                 ),
               ),
-      
+
               const SizedBox(height: 30),
-      
+
               // Preço e quantidade
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
                   color: const Color(0xFFF4709D),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  ),
+                  borderRadius: BorderRadius.circular(30),
                 ),
                 child: Row(
                   children: [
                     IconButton(
                       onPressed: () {
                         if (quantity > 1) {
-                          setState(() {
-                            quantity--;
-                          });
+                          setState(() => quantity--);
                         }
                       },
-                      icon: const Icon(Icons.remove_circle_outline, color: Colors.white,),
+                      icon: const Icon(
+                        Icons.remove_circle_outline,
+                        color: Colors.white,
+                      ),
                     ),
                     Text(
                       "$quantity",
                       style: const TextStyle(fontSize: 18, color: Colors.white),
                     ),
                     IconButton(
-                      onPressed: () {
-                        setState(() {
-                          quantity++;
-                        });
-                      },
-                      icon: const Icon(Icons.add_circle_outline, color: Colors.white,),
+                      onPressed: () => setState(() => quantity++),
+                      icon: const Icon(
+                        Icons.add_circle_outline,
+                        color: Colors.white,
+                      ),
                     ),
                     const Spacer(),
                     Text(
                       "R\$ ${(product.price * quantity).toStringAsFixed(2)}",
-                      style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                     const Spacer(),
-                    GestureDetector(onTap: (){
-                                setState(() {
-                                  
-                                  showModalBottomSheet(
-  context: context,
-  shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-  ),
-  builder: (context) {
-    return ShoppingCartAddModal();
-  },
-);
-
-                                  shoppingCartNotifier.addToCartItems(product, quantity);
-                                /*Navigator.push(context, MaterialPageRoute(builder: (context) => 
-                                  ShoppingCartPage(shoppingCartChangeNotifier: shoppingCartNotifier, onUpdate: (){setState(() {
-                                    
-                                  });},)));*/
-                                });
-                    }, child: Image.asset('assets/images/cesta_compras.png'))
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          shoppingCartNotifier.addToCartItems(product, quantity);
+                          showModalBottomSheet(
+                            context: context,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.vertical(top: Radius.circular(20)),
+                            ),
+                            builder: (context) => ShoppingCartAddModal(),
+                          );
+                        });
+                      },
+                      child: Image.asset('assets/images/cesta_compras.png'),
+                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

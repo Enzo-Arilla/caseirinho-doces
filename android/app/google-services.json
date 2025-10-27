@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "889180555557",
+    "project_id": "caseirinho-doces",
+    "storage_bucket": "caseirinho-doces.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889180555557:android:d43a22f39cceae0742f2cc",
+        "android_client_info": {
+          "package_name": "com.example.caseirinhodoces"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889180555557-1jbca0vfujnftu01cq0jffb0qo4ur5ha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmxkBzP-5OWRa0QQz5YNjW2NIgrux2W_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889180555557-1jbca0vfujnftu01cq0jffb0qo4ur5ha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

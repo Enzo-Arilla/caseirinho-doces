@@ -21,33 +21,75 @@ class ProductCard extends StatelessWidget {
           const Padding(padding: EdgeInsets.only(top: 35.0)),
           GestureDetector(
             onTap: () => {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ProductPage(product: product)))
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductPage(product: product),
+                ),
+              )
             },
             child: Container(
               width: 300,
               height: 200,
               clipBehavior: Clip.antiAlias,
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-              child: Image.asset(product.imagePath, fit: BoxFit.cover),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Image.asset(
+                product.imagePath,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const Padding(padding: EdgeInsets.only(top: 12.0)),
-          RichText(text: TextSpan(children: [TextSpan(text: product.description + ' ', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)), 
-                                             WidgetSpan(child: GestureDetector(onTap: onFavoriteTap, child: product.isFavorite ? Icon(Icons.favorite, color: Color(0xFFF96697), size: 18) : 
-                                                                                                           Icon(Icons.favorite_border, color: Color(0xFFF96697), size: 18)))])),
+          RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: product.description + ' ',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+                WidgetSpan(
+                  child: GestureDetector(
+                    onTap: onFavoriteTap,
+                    child: product.isFavorite
+                        ? const Icon(
+                            Icons.favorite,
+                            color: Color(0xFFF96697),
+                            size: 18,
+                          )
+                        : const Icon(
+                            Icons.favorite_border,
+                            color: Color(0xFFF96697),
+                            size: 18,
+                          ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           const Padding(padding: EdgeInsets.only(top: 4.0)),
           RichText(
             text: TextSpan(
               children: [
                 const WidgetSpan(
-                  child: Icon(Icons.star, color: Color(0xFFF4709D), size: 16),
+                  child: Icon(
+                    Icons.star,
+                    color: Color(0xFFF4709D),
+                    size: 16,
+                  ),
                 ),
                 TextSpan(
-                    text: " ${product.rate} ",
-                    style: const TextStyle(color: Color(0xFFF96697))),
+                  text: " ${product.rate} ",
+                  style: const TextStyle(color: Color(0xFFF96697)),
+                ),
                 TextSpan(
-                    text: "(${product.numberOfReviews} avaliações)",
-                    style: const TextStyle(color: Colors.blueGrey)),
+                  text: "(${product.numberOfReviews} avaliações)",
+                  style: const TextStyle(color: Colors.blueGrey),
+                ),
               ],
             ),
           ),

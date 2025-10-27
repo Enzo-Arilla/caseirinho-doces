@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 
-class Input extends StatelessWidget {
+class InputForm extends StatelessWidget {
   final String hintText;
   final bool enabled;
 
-  const Input({
+  final TextEditingController? controller;
+
+  const InputForm({
+    this.controller,
     required this.hintText,
     required this.enabled,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.grey[400]),
@@ -34,6 +38,15 @@ class Input extends StatelessWidget {
         fillColor: Colors.white,
         enabled: enabled,
       ),
+      onSaved: (String? value) {
+
+      },
+      validator: (String? value) {
+        if (value == null || value == "")
+          return "O campo ${hintText.toLowerCase()} não pode ser vazio";
+        else
+          return null;
+      },
     );
   }
 }

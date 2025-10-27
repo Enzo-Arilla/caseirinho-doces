@@ -27,7 +27,6 @@ class ProductCart extends StatefulWidget {
 }
 
 class _ProductCartState extends State<ProductCart> {
-
   late ShoppingCartChangeNotifier shoppingCartNotifier;
 
   @override
@@ -39,7 +38,6 @@ class _ProductCartState extends State<ProductCart> {
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
@@ -74,11 +72,13 @@ class _ProductCartState extends State<ProductCart> {
                     // Botão diminuir
                     IconButton(
                       icon: const Icon(Icons.remove),
-                      onPressed: () {},
+                      onPressed: widget.onDecrease,
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 6),
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.grey[300],
                         borderRadius: BorderRadius.circular(4),
@@ -101,6 +101,7 @@ class _ProductCartState extends State<ProductCart> {
               ],
             ),
           ),
+
           // Preço
           Text(
             "R\$${(widget.product.price * widget.quantity).toStringAsFixed(2)}",
@@ -112,31 +113,32 @@ class _ProductCartState extends State<ProductCart> {
 
           // Botão remover
           IconButton(
-  icon: const Icon(Icons.close, color: Colors.pink),
-  onPressed: () {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Remover item"),
-        content: const Text("Tem certeza que deseja remover este produto do carrinho?"),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(),
-            child: const Text("Cancelar"),
-          ),
-          TextButton(
+            icon: const Icon(Icons.close, color: Colors.pink),
             onPressed: () {
-              Navigator.of(context).pop();
-              widget.onRemove(); 
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text("Remover item"),
+                  content: const Text(
+                    "Tem certeza que deseja remover este produto do carrinho?",
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text("Cancelar"),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        widget.onRemove();
+                      },
+                      child: const Text("Remover"),
+                    ),
+                  ],
+                ),
+              );
             },
-            child: const Text("Remover"),
           ),
-        ],
-      ),
-    );
-  },
-),
-
         ],
       ),
     );

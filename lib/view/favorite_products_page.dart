@@ -7,7 +7,11 @@ class FavoriteProductsPage extends StatefulWidget {
   final ProductChangeNotifier productNotifier;
   final VoidCallback onUpdate;
 
-  FavoriteProductsPage({super.key, required this.productNotifier, required this.onUpdate});
+  FavoriteProductsPage({
+    super.key,
+    required this.productNotifier,
+    required this.onUpdate,
+  });
 
   @override
   State<FavoriteProductsPage> createState() => _FavoriteProductsPageState();
@@ -41,7 +45,11 @@ class _FavoriteProductsPageState extends State<FavoriteProductsPage> {
         leading: Padding(
           padding: const EdgeInsets.only(left: 16.0),
           child: IconButton(
-            icon: Image.asset("assets/images/Xrosa.png", width: 28, height: 28),
+            icon: Image.asset(
+              "assets/images/Xrosa.png",
+              width: 28,
+              height: 28,
+            ),
             onPressed: () => Navigator.pop(context),
           ),
         ),
@@ -83,9 +91,9 @@ class _FavoriteProductsPageState extends State<FavoriteProductsPage> {
                 return ProductCard(
                   product: product,
                   onFavoriteTap: () {
-                    productNotifier.updateIsFavorite(productNotifier.products.indexOf(product));
-                        setState(() {
-                        });
+                    productNotifier.updateIsFavorite(
+                        productNotifier.products.indexOf(product));
+                    setState(() {});
                     widget.onUpdate();
                   },
                 );
@@ -93,10 +101,6 @@ class _FavoriteProductsPageState extends State<FavoriteProductsPage> {
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: NavigationBarCustom(
-        selectedIndex: 0,
-        onItemTapped: (int a) {},
       ),
     );
   }
